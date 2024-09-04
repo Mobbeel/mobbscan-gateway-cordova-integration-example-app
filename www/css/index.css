@@ -1,0 +1,107 @@
+* {
+	-webkit-tap-highlight-color: rgba(
+		0,
+		0,
+		0,
+		0
+	); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	-webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+	-webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+	background-color: #fff;
+	font-family:
+		system-ui,
+		-apple-system,
+		-apple-system-font,
+		'Segoe UI',
+		'Roboto',
+		sans-serif;
+	font-size: 12px;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+iframe {
+	border: none;
+	height: 100%;
+	width: 100%;
+}
+
+/* Portrait layout (default) */
+.app {
+	height: 100%;
+	width: 100%;
+}
+
+.event {
+	border-radius: 4px;
+	color: #ffffff;
+	font-size: 12px;
+	margin: 0px 30px;
+	padding: 2px 0px;
+}
+
+.event.listening {
+	background-color: #333333;
+	display: block;
+}
+
+.event.received {
+	background-color: #4b946a;
+	display: none;
+}
+.event.info {
+	background-color: #007aff;
+	display: none;
+}
+.event.error {
+	background-color: #ff3b30;
+	display: none;
+}
+
+#deviceready {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: center;
+	left: 1rem;
+	position: absolute;
+	top: 1rem;
+}
+
+#deviceready.ready > p {
+	margin: 0;
+	padding: 1rem;
+}
+
+#deviceready.ready .event.listening {
+	display: none;
+}
+#deviceready.ready .event.received {
+	display: block;
+}
+
+@keyframes fade {
+	from {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.blink {
+	-webkit-animation: fade 1000ms 3;
+	animation: fade 1000ms 3;
+	display: block !important;
+}

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.mobbeel.mobbscan.gateway.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MobbScan Gateway</name>
+    <description>Mobbscan Gateway Cordova Demo iframe integration</description>
+    <author email="info@mobbeel.com" href="https://www.mobbeel.com">
+        Mobbeel
+    </author>
+    <content src="index.html" />
+
+	<!-- Security related settings -->
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+	<allow-navigation href="{{ONBOARDING_URL}}" />
+	<allow-navigation href="about:*" />
+
+	<!-- Preferences Android -->
+	<platform name="android">
+		<preference name="scheme" value="https" />
+		<preference name="hostname" value="hostname" />
+	</platform>
+
+	<!-- Preferences iOS -->
+	<platform name="ios">
+		<preference name="scheme" value="yourCustomScheme" />
+		<preference name="hostname" value="hostname" />
+		<preference name="AllowInlineMediaPlayback" value="true" />
+	</platform>
+
+	<!-- Camera permission Android -->
+	<platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-feature android:name="android.hardware.camera" android:required="true" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+			<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    </config-file>
+	</platform>
+
+	<!-- Camera permission IOS -->
+	<platform name="ios">
+		<edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+    		<string>need camera access to take pictures</string>
+		</edit-config>
+		<edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+    	<string>need photo library access to get pictures from there</string>
+		</edit-config>
+		<edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+				<string>need location access to find things nearby</string>
+		</edit-config>
+		<edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+				<string>need photo library access to save pictures there</string>
+		</edit-config>
+	</platform>
+</widget>
